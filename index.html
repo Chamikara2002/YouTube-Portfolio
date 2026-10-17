@@ -28,6 +28,14 @@
 
   <!-- STYLESHEET -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- INSTANT SCROLL TO TOP ON PAGE REFRESH -->
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+  </script>
 </head>
 
 <body class="cyber-theme">
@@ -493,148 +501,35 @@
         <div class="section-title-wrap">
           <h2 class="section-title">TOP TRENDING GAMEPLAYS &amp; CLUTCHES</h2>
           <p class="section-subtitle">
-            Hand-picked tactical masterpieces from Rust survival raids, Dead by Daylight escapes, and Among Us mind
-            games.
+            Hand-picked tactical masterpieces from Rust survival raids, Dead by Daylight escapes, and Among Us mind games.
           </p>
-        </div>
 
-        <!-- Featured Big Card: RUST LIVE STREAM (JyKowdYaUu0) -->
-        <div class="rgb-card featured-gameplay-card" data-tilt>
-          <div class="card-inner">
-            <div class="showcase-thumb-wrap">
-              <!-- Official Rust Live Stream Thumbnail -->
-              <img src="assets/rust_featured_yt.jpg" alt="RUST ECA LIVE GAMEPLAY by CHAMI G" class="showcase-img">
-              <div class="showcase-overlay">
-                <button type="button" class="play-showcase-btn" id="playFeaturedBtn" data-video-id="JyKowdYaUu0"
-                  data-video-title="RUST ECA LIVE GAMEPLAY // SURVIVAL RAID - CHAMI G"
-                  aria-label="Play Featured Rust Video">
-                  <i class="fa-solid fa-play"></i>
-                </button>
-                <div class="video-duration-badge"><i class="fa-solid fa-tower-broadcast"></i> LIVE REPLAY</div>
-              </div>
-              <div class="showcase-live-chip">
-                <span class="live-dot-red"></span> RUST OFFICIAL LIVE STREAM
-              </div>
+          <!-- 10-MINUTE SHOWCASE ROTATION HUD CONTROLS -->
+          <div class="rotation-control-bar">
+            <div class="rotation-hud-badge">
+              <span class="pulse-beacon-yellow"></span>
+              <span class="rotation-label">10-MIN AUTO ROTATION</span>
+              <span class="timer-countdown-chip"><i class="fa-solid fa-hourglass-half"></i> Next Swap: <strong id="rotationTimerCountdown">10:00</strong></span>
             </div>
-
-            <div class="showcase-info">
-              <div class="showcase-tags">
-                <span class="pill-chip"><i class="fa-solid fa-cube"></i> RUST SURVIVAL</span>
-                <span class="pill-chip"><i class="fa-solid fa-crosshairs"></i> CLUTCH COMBAT</span>
-                <span class="pill-chip"><i class="fa-solid fa-users"></i> SQUAD RAID</span>
-              </div>
-              <h3 class="showcase-title">RUST ECA LIVE GAMEPLAY // SURVIVAL RAID &amp; COMBAT - CHAMI G</h3>
-              <p class="showcase-desc">
-                Watch the official Rust live broadcast featuring high-intensity base building, clan raids, tactical
-                defense, and heart-pounding survival clutches with Commander WMC. Click play to watch directly on this
-                site or visit YouTube.
-              </p>
-              <div class="showcase-footer">
-                <div class="showcase-meta">
-                  <span><i class="fa-solid fa-eye"></i> Thousands Watched Live</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Official Stream</span>
-                </div>
-                <div class="showcase-btns">
-                  <button type="button" class="btn btn-secondary-cyber" id="playFeaturedModalTrigger">
-                    <i class="fa-solid fa-play"></i> Play On Site
-                  </button>
-                  <a href="https://youtube.com/live/JyKowdYaUu0?feature=share" target="_blank" rel="noopener noreferrer"
-                    class="btn btn-primary-rgb">
-                    <i class="fa-brands fa-youtube"></i> Open on YouTube
-                  </a>
-                </div>
-              </div>
+            <div class="rotation-nav-controls">
+              <button type="button" class="btn-rotate-nav" id="prevShowcaseBtn" title="Previous Showcase" aria-label="Previous Showcase">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button type="button" class="btn-rotate-nav" id="nextShowcaseBtn" title="Next Showcase" aria-label="Next Showcase">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
             </div>
           </div>
         </div>
 
-        <!-- 3 Supporting Gameplay Cards -->
-        <div class="gameplay-grid">
-          <!-- Game 1: Rust Base Raid -->
-          <div class="rgb-card game-card" data-tilt>
-            <div class="card-inner">
-              <div class="game-thumb-container">
-                <img src="assets/rust_raid_thumb.jpg" alt="Rust Raid Gameplay" class="game-thumb">
-                <button type="button" class="mini-play-btn" data-video-id="JyKowdYaUu0"
-                  data-video-title="RUST: EPIC BASE RAID & SURVIVAL CLUTCH" aria-label="Play Rust Highlight">
-                  <i class="fa-solid fa-play"></i>
-                </button>
-                <span class="game-badge">SURVIVAL RAID</span>
-              </div>
-              <div class="game-card-content">
-                <h4 class="game-card-title">RUST: EPIC BASE RAID &amp; SURVIVAL CLUTCH</h4>
-                <p class="game-card-desc">
-                  Intense compound defense against rival clan using rocket launchers, C4 defenses, and tactical breach
-                  maneuvers.
-                </p>
-                <div class="game-card-meta">
-                  <span><i class="fa-solid fa-eye"></i> 89K Views</span>
-                  <a href="https://youtube.com/live/JyKowdYaUu0?feature=share" target="_blank" rel="noopener noreferrer"
-                    class="mini-link">
-                    Watch <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Dynamic Big Featured Card Container -->
+        <div id="featuredShowcaseWrapper">
+          <!-- Dynamically populated and swapped by script.js every 10 minutes -->
+        </div>
 
-          <!-- Game 2: Dead By Daylight -->
-          <div class="rgb-card game-card" data-tilt>
-            <div class="card-inner">
-              <div class="game-thumb-container">
-                <img src="assets/dead_by_daylight_thumb.jpg" alt="Dead by Daylight Gameplay" class="game-thumb">
-                <button type="button" class="mini-play-btn" data-video-id="JyKowdYaUu0"
-                  data-video-title="DEAD BY DAYLIGHT: IMPOSSIBLE ESCAPE AGAINST PRO KILLER"
-                  aria-label="Play DBD Highlight">
-                  <i class="fa-solid fa-play"></i>
-                </button>
-                <span class="game-badge">HORROR SURVIVAL</span>
-              </div>
-              <div class="game-card-content">
-                <h4 class="game-card-title">DEAD BY DAYLIGHT: IMPOSSIBLE ESCAPE</h4>
-                <p class="game-card-desc">
-                  Heart-stopping hatch escape against rank 1 killer. Last survivor standing, dodging bear traps in
-                  absolute darkness.
-                </p>
-                <div class="game-card-meta">
-                  <span><i class="fa-solid fa-eye"></i> 74K Views</span>
-                  <a href="https://www.youtube.com/@CHAMI_G" target="_blank" rel="noopener noreferrer"
-                    class="mini-link">
-                    Watch <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Game 3: Among Us Imposter -->
-          <div class="rgb-card game-card" data-tilt>
-            <div class="card-inner">
-              <div class="game-thumb-container">
-                <img src="assets/among_us_thumb.jpg" alt="Among Us Gameplay" class="game-thumb">
-                <button type="button" class="mini-play-btn" data-video-id="JyKowdYaUu0"
-                  data-video-title="AMONG US: 200 IQ IMPOSTER SABOTAGE & WIN OVERTEAM"
-                  aria-label="Play Among Us Highlight">
-                  <i class="fa-solid fa-play"></i>
-                </button>
-                <span class="game-badge">MIND GAMES</span>
-              </div>
-              <div class="game-card-content">
-                <h4 class="game-card-title">AMONG US: 200 IQ IMPOSTER SABOTAGE</h4>
-                <p class="game-card-desc">
-                  Flawless imposter sabotage play convincing everyone in emergency meetings while eliminating crewmates
-                  one by one.
-                </p>
-                <div class="game-card-meta">
-                  <span><i class="fa-solid fa-eye"></i> 112K Views</span>
-                  <a href="https://www.youtube.com/@CHAMI_G" target="_blank" rel="noopener noreferrer"
-                    class="mini-link">
-                    Watch <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Dynamic 3 Supporting Gameplay Cards Grid -->
+        <div class="gameplay-grid" id="supportingGameplayGrid">
+          <!-- Small cards populated and swapped by script.js -->
         </div>
 
       </div>
