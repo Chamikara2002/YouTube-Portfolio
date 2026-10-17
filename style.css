@@ -417,6 +417,14 @@ a {
   transform: rotate(-6deg) scale(1.08);
 }
 
+.brand-avatar-frame picture,
+.mascot-img-wrapper picture,
+.footer-logo picture,
+.showcase-thumb-wrap picture,
+.game-thumb-container picture {
+  display: contents;
+}
+
 .brand-avatar-img {
   width: 100%;
   height: 100%;

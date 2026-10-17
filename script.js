@@ -268,6 +268,9 @@ document.addEventListener('DOMContentLoaded', () => {
       videoId: 'JyKowdYaUu0',
       youtubeUrl: 'https://www.youtube.com/live/JyKowdYaUu0?si=hOzWV-fPmyzbL53I',
       thumb: 'assets/rust_featured_yt.jpg',
+      webp350: 'assets/rust_featured_yt_350.webp',
+      webp700: 'assets/rust_featured_yt_700.webp',
+      webp1280: 'assets/rust_featured_yt_1280.webp',
       desc: 'Watch the official Rust live broadcast featuring high-intensity base building, clan raids, tactical defense, and heart-pounding survival clutches with Commander WMC.',
       tags: ['RUST SURVIVAL', 'CLUTCH COMBAT', 'SQUAD RAID'],
       views: 'Thousands Watched Live',
@@ -281,6 +284,9 @@ document.addEventListener('DOMContentLoaded', () => {
       videoId: 'LDIqd1o4vG8',
       youtubeUrl: 'https://www.youtube.com/live/LDIqd1o4vG8?si=h8V27iSdVjIxbzh7',
       thumb: 'assets/dbd_featured_yt.jpg',
+      webp350: 'assets/dbd_featured_yt_350.webp',
+      webp700: 'assets/dbd_featured_yt_700.webp',
+      webp1280: 'assets/dbd_featured_yt_1280.webp',
       desc: 'Heart-stopping hatch escape and mind games against rank 1 killer. Last survivor standing, dodging bear traps in absolute darkness with Commander WMC.',
       tags: ['DEAD BY DAYLIGHT', 'PRO ESCAPE', 'HORROR CLUTCH'],
       views: '74K Views',
@@ -294,6 +300,9 @@ document.addEventListener('DOMContentLoaded', () => {
       videoId: 'JyKowdYaUu0',
       youtubeUrl: 'https://www.youtube.com/live/JyKowdYaUu0?si=hOzWV-fPmyzbL53I',
       thumb: 'assets/rust_raid_thumb.jpg',
+      webp350: 'assets/rust_raid_thumb_350.webp',
+      webp700: 'assets/rust_raid_thumb_700.webp',
+      webp1280: 'assets/rust_raid_thumb_1024.webp',
       desc: 'Intense compound defense against rival clan using rocket launchers, C4 defenses, and tactical breach maneuvers under heavy siege.',
       tags: ['RUST RAID', 'BASE DEFENSE', 'C4 SIEGE'],
       views: '89K Views',
@@ -307,6 +316,9 @@ document.addEventListener('DOMContentLoaded', () => {
       videoId: 'JyKowdYaUu0',
       youtubeUrl: 'https://www.youtube.com/@CHAMI_G',
       thumb: 'assets/among_us_thumb.jpg',
+      webp350: 'assets/among_us_thumb_350.webp',
+      webp700: 'assets/among_us_thumb_700.webp',
+      webp1280: 'assets/among_us_thumb_1024.webp',
       desc: 'Flawless imposter sabotage play convincing everyone in emergency meetings while systematically eliminating crewmates one by one.',
       tags: ['AMONG US', '200 IQ SABOTAGE', 'IMPOSTER WIN'],
       views: '112K Views',
@@ -357,7 +369,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="rgb-card featured-gameplay-card" data-tilt>
           <div class="card-inner">
             <div class="showcase-thumb-wrap">
-              <img src="${featuredItem.thumb}" alt="${featuredItem.title}" class="showcase-img" loading="eager">
+              <picture>
+                <source srcset="${featuredItem.webp350} 350w, ${featuredItem.webp700} 700w, ${featuredItem.webp1280} 1280w" sizes="(max-width: 768px) 100vw, 700px" type="image/webp">
+                <img src="${featuredItem.thumb}" alt="${featuredItem.title}" class="showcase-img" width="700" height="394" loading="lazy">
+              </picture>
               <div class="showcase-overlay">
                 <button type="button" class="play-showcase-btn" 
                   data-video-id="${featuredItem.videoId}" 
@@ -409,7 +424,10 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="rgb-card game-card" data-tilt data-catalog-index="${item.catalogIndex}" title="Click to promote to Featured Showcase">
           <div class="card-inner">
             <div class="game-thumb-container">
-              <img src="${item.thumb}" alt="${item.title}" class="game-thumb" loading="lazy">
+              <picture>
+                <source srcset="${item.webp350} 350w, ${item.webp700} 700w" sizes="(max-width: 768px) 100vw, 350px" type="image/webp">
+                <img src="${item.thumb}" alt="${item.title}" class="game-thumb" width="350" height="197" loading="lazy">
+              </picture>
               <button type="button" class="mini-play-btn" 
                 data-video-id="${item.videoId}"
                 data-video-title="${item.title}" 
