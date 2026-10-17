@@ -1,16 +1,49 @@
 # Netlify Configuration for CHAMI G (COMMANDER WMC) Portfolio
+# Optimized for Lighthouse 100 Performance, High Cache Hit Rates & Fast Delivery
 
 [build]
   publish = "."
 
-# Cache control and headers for high performance asset delivery
+# Netlify Asset Optimization (Post-processing)
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Cache-Control & Performance Headers
+# 1. Static media assets: 1 year immutable long-term caching
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# 2. Main CSS & JS: 1 hour caching for non-versioned assets (allows instant client freshness)
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+# 3. Security and optimization headers for all routes
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
     Referrer-Policy = "strict-origin-when-cross-origin"
