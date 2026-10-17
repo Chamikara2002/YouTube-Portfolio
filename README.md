@@ -38,7 +38,7 @@
 ### 5. Tactical Comms & Social Hub
 Direct links to all official platforms:
 - **YouTube:** `https://www.youtube.com/@CHAMI_G`
-- **Discord:** `https://discord.gg/z75kJZNZ2`
+- **Discord:** `https://discord.gg/sAqzreY2yA`
 - **TikTok:** `https://www.tiktok.com/@chami_gaming2`
 - **Twitch:** `https://www.twitch.tv/chami_stream`
 - **Kick:** `https://kick.com/chami-g`
